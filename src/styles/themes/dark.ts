@@ -6,6 +6,7 @@ export default {
         primary: '#fff',
         secondary: '#888888',
         postive: '#298C68',
-        negative: '#D84B4B'
+        negative: '#D84B4B',
+        day: '#000'
     }
 }

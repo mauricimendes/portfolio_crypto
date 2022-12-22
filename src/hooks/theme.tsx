@@ -9,20 +9,21 @@ type Props = {
 }
 
 interface ThemeContextData {
-    changeTheme(): void
+    changeTheme(): void,
+    actualTheme: string
 }
 
 const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData)
 
 const ThemeProvider: React.FC<Props> = ({ children }) => {
-    const [theme, setTheme] = useState(light)
+    const [theme, setTheme] = useState(dark)
 
     const changeTheme = useCallback(() => {
         theme.title === 'light' ? setTheme(dark) : setTheme(light)
     }, [theme])
 
     return (
-        <ThemeContext.Provider value={{ changeTheme }} >
+        <ThemeContext.Provider value={{ changeTheme, actualTheme: theme.title }} >
             <Theme theme={theme}>
                 { children }
             </Theme>
