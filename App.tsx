@@ -10,7 +10,7 @@ import { Text } from 'react-native'
 import { useFonts } from 'expo-font'
 
 import { ThemeProvider } from './src/hooks/theme'
-import Home from './src/home'
+import Routes from './src/routes'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <Home />
+      <Routes />
     </ThemeProvider>
   );
 }

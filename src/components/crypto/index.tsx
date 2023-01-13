@@ -9,8 +9,6 @@ import {
     Value,
 } from './styles'
 
-import bitcoin from '../../assets/bitcoin.png'
-
 export interface ICrypto {
     name: string
     asset_id: string
@@ -21,13 +19,12 @@ export interface ICrypto {
 const Crypto: React.FC<ICrypto> = ({ name, asset_id, price_usd, icon }) => {
     
     const price = useMemo(() => {
-        const formatted = Intl.NumberFormat('pt-br', {style: 'currency', currency: 'BRL'}).format(price_usd)
-        return !price_usd ? 'R$ 00.00' : formatted
+        return Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(!price_usd ? 0.00 : price_usd)
     }, [price_usd])
 
     return (
         <Container>
-            <SymbolIcon source={{ uri: icon }}/>
+            <SymbolIcon source={{ uri: icon }} />
             <DescriptionSection>
                 <Name>
                     {name}
